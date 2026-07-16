@@ -289,52 +289,6 @@ svg{display:block}
 .vs-btn.on .l{color:rgba(255,255,255,.7)}
 .vs-btn:not(.on):hover{background:var(--fill-2)}
 
-/* controls: date + competitor picker */
-.ctrl-bar{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;margin-bottom:12px}
-.ctrl{display:flex;flex-direction:column;gap:7px}
-.ctrl-l{font-size:11px;color:var(--text3);letter-spacing:.03em;text-transform:uppercase;font-weight:600}
-.seg{display:inline-flex;background:var(--fill);border:1px solid var(--border);border-radius:9px;padding:3px;gap:2px}
-.seg-b{font-size:12px;font-weight:500;color:var(--text2);padding:6px 12px;border-radius:6px;cursor:pointer;transition:background .12s}
-.seg-b.on{background:var(--surface);color:var(--navy);box-shadow:0 1px 2px rgba(5,22,77,.06)}
-.seg-b:not(.on):hover{color:var(--navy)}
-.comp-picker{display:flex;flex-wrap:wrap;gap:7px}
-.comp{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--text2);border:1px solid var(--border);background:var(--surface);border-radius:20px;padding:6px 13px;cursor:pointer;transition:all .12s}
-.comp:hover{border-color:var(--navy);color:var(--navy)}
-.comp .flag{font-size:12px;line-height:1}
-.comp.on{background:var(--navy);color:#fff;border-color:var(--navy)}
-.comp.on .comp-x{opacity:.8}
-.comp.dis{opacity:.4;cursor:not-allowed}
-.comp-x{margin-left:2px;font-size:13px}
-.ctrl-note{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--warn-tx2);background:var(--warn-bg);border:1px solid var(--warn-bd);border-radius:9px;padding:9px 13px;margin-bottom:18px}
-.ctrl-note svg{width:14px;height:14px;flex-shrink:0}
-
-/* prompt search */
-.ps-wrap{border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:22px;background:var(--surface)}
-.ps-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px;flex-wrap:wrap}
-.ps-h{font-size:15px;font-weight:600;color:var(--navy);letter-spacing:-0.2px}
-.ps-s{font-size:12px;color:var(--text2);margin-top:2px;max-width:440px;line-height:1.5}
-.ps-sim{flex-shrink:0;font-size:10.5px;font-weight:600;color:var(--warn-tx2);background:var(--warn-bg);border:1px solid var(--warn-bd);border-radius:6px;padding:5px 10px}
-.ps-box{display:flex;align-items:center;gap:10px;border:1px solid var(--border);border-radius:11px;padding:11px 15px;transition:border-color .15s,box-shadow .15s}
-.ps-box:focus-within{border-color:var(--navy);box-shadow:0 0 0 4px rgba(5,22,77,.05)}
-.ps-box svg{width:17px;height:17px;color:var(--text3);flex-shrink:0}
-.ps-box input{flex:1;border:none;outline:none;font-size:14px;color:var(--text);background:transparent}
-.ps-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
-.ps-chip{font-size:11.5px;color:var(--text2);border:1px solid var(--border);border-radius:16px;padding:5px 11px;background:var(--fill);cursor:pointer;transition:all .12s}
-.ps-chip:hover{border-color:var(--amber);color:var(--navy)}
-.ps-results{margin-top:14px;display:flex;flex-direction:column;gap:9px}
-.ps-r{border:1px solid var(--border);border-radius:11px;padding:14px 16px}
-.ps-r-top{display:flex;align-items:center;gap:9px;margin-bottom:8px;flex-wrap:wrap}
-.ps-r-q{font-size:13.5px;font-weight:600;color:var(--navy)}
-.ps-r-meta{font-size:11px;color:var(--text3)}
-.ps-badge{font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:6px}
-.ps-badge.absent{background:var(--dng-bg);color:var(--dng-tx)}
-.ps-badge.present{background:var(--ok-bg);color:var(--ok-tx)}
-.ps-r-body{font-size:12.5px;color:var(--text2);line-height:1.6}
-.ps-r-body b{color:var(--navy);font-weight:600}
-.ps-brands{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.ps-brand{font-size:11px;color:var(--text2);background:var(--fill);border-radius:6px;padding:3px 9px}
-.ps-brand.lh{background:var(--ok-bg);color:var(--ok-tx);font-weight:600}
-.ps-empty{font-size:12.5px;color:var(--text3);padding:14px 2px}
 
 .verdict{display:flex;gap:22px;border:1px solid var(--border);border-left-width:4px;border-radius:var(--r);padding:20px 22px;margin-bottom:20px;background:var(--surface)}
 .verdict.gap{border-left-color:var(--dng-tx)}
@@ -1269,83 +1223,6 @@ var VS = {
 };
 
 var currentVS = 'ISB', currentEv = 'gaps';
-
-// ===== AI Visibility interactive controls (simulated on real data) =====
-var PROMPTS = [{"q": "Prague and Czech Republic Travel and Information", "cc": "US", "vol": "738.9K", "voln": 738942, "lh": 0, "brands": ["Eurowings", "Ryanair"]}, {"q": "Ägypten Reisen & Visa", "cc": "DE", "vol": "369.6K", "voln": 369611, "lh": 0, "brands": ["Eurowings", "Skyscanner"]}, {"q": "Copenhagen Travel and Attractions", "cc": "US", "vol": "369.0K", "voln": 369006, "lh": 0, "brands": ["Eurowings", "Ryanair"]}, {"q": "Silvesterreisen und Silvesterpartys in Deutschland", "cc": "DE", "vol": "364.4K", "voln": 364365, "lh": 0, "brands": ["Eurowings", "Skyscanner"]}, {"q": "Vueling vuelos y check-in", "cc": "ES", "vol": "353.8K", "voln": 353813, "lh": 0, "brands": ["Eurowings", "Ryanair"]}, {"q": "Las Vegas Airport and Flights", "cc": "US", "vol": "350.1K", "voln": 350092, "lh": 0, "brands": ["Eurowings", "Condor"]}, {"q": "Flight search engines", "cc": "ES", "vol": "298.6K", "voln": 298585, "lh": 0, "brands": ["Eurowings", "Ryanair"]}, {"q": "Herbstreiseziele", "cc": "DE", "vol": "287.2K", "voln": 287185, "lh": 0, "brands": ["Ryanair", "Condor", "Skyscanner"]}, {"q": "Malediven-Reisen", "cc": "DE", "vol": "251.9K", "voln": 251871, "lh": 0, "brands": ["Condor", "Skyscanner"]}, {"q": "Zanzibar Reisen & Klima", "cc": "DE", "vol": "239.3K", "voln": 239327, "lh": 0, "brands": ["Eurowings", "Condor", "Skyscanner"]}, {"q": "Zypern Klima & Wetter", "cc": "DE", "vol": "233.6K", "voln": 233555, "lh": 0, "brands": ["Eurowings", "Skyscanner"]}, {"q": "Sardinien Urlaub & Klima", "cc": "DE", "vol": "224.4K", "voln": 224435, "lh": 0, "brands": ["Eurowings", "Ryanair", "Condor", "Skyscanner"]}, {"q": "European Travel Destinations", "cc": "US", "vol": "209.0K", "voln": 209029, "lh": 0, "brands": ["Ryanair", "Condor"]}, {"q": "Portugal-Wetter", "cc": "DE", "vol": "196.6K", "voln": 196597, "lh": 0, "brands": ["Eurowings", "Skyscanner"]}, {"q": "Warme Reiseziele im Februar und März", "cc": "DE", "vol": "195.7K", "voln": 195748, "lh": 0, "brands": ["Condor", "Skyscanner"]}, {"q": "Mauritius Reisen & Klima", "cc": "DE", "vol": "194.3K", "voln": 194333, "lh": 0, "brands": ["Condor", "Skyscanner"]}, {"q": "Sizilien Wetter & Reisen", "cc": "DE", "vol": "177.3K", "voln": 177347, "lh": 0, "brands": ["Eurowings", "Ryanair", "Skyscanner"]}, {"q": "Griechenland Inselurlaub", "cc": "DE", "vol": "167.9K", "voln": 167896, "lh": 0, "brands": ["Eurowings", "Condor", "Skyscanner"]}, {"q": "Familienhotels Deutschland", "cc": "DE", "vol": "162.3K", "voln": 162345, "lh": 0, "brands": ["Eurowings", "Skyscanner"]}, {"q": "Kroatien Wetter & Klima", "cc": "DE", "vol": "159.6K", "voln": 159558, "lh": 0, "brands": ["Eurowings", "Skyscanner"]}, {"q": "Italienreisen: Strände, Regionen & Karten", "cc": "DE", "vol": "159.6K", "voln": 159554, "lh": 0, "brands": ["Eurowings", "Ryanair", "Skyscanner"]}, {"q": "April-Wärmereiseziele", "cc": "DE", "vol": "152.8K", "voln": 152790, "lh": 0, "brands": ["Eurowings", "Condor", "Skyscanner"]}, {"q": "Boeing 747 aircraft overview", "cc": "DE", "vol": "89.2K", "voln": 89183, "lh": 79, "men": 117}, {"q": "Lufthansa and KLM Baggage Policies", "cc": "UK", "vol": "78.3K", "voln": 78296, "lh": 95, "men": 154}, {"q": "Lufthansa Gehälter: Piloten & Flugbegleiter", "cc": "DE", "vol": "68.7K", "voln": 68705, "lh": 76, "men": 131}, {"q": "Lufthansa Premium Economy", "cc": "DE", "vol": "57.9K", "voln": 57919, "lh": 92, "men": 100}, {"q": "Lufthansa voli e offerte voli", "cc": "IT", "vol": "45.2K", "voln": 45166, "lh": 76, "men": 35}, {"q": "Lufthansa Kundenservice & Kontakt", "cc": "DE", "vol": "42.1K", "voln": 42144, "lh": 95, "men": 102}, {"q": "Airbus A340-Flotte & Sitzpläne", "cc": "DE", "vol": "38.1K", "voln": 38109, "lh": 80, "men": 58}, {"q": "Lufthansa Business Class & Allegris", "cc": "DE", "vol": "36.8K", "voln": 36808, "lh": 93, "men": 43}, {"q": "Lufthansa Customer Service and Contact", "cc": "US", "vol": "33.4K", "voln": 33448, "lh": 97, "men": 81}, {"q": "Lufthansa Check-In & Airlines", "cc": "ES", "vol": "32.9K", "voln": 32869, "lh": 85, "men": 43}, {"q": "Airbus A340 and Lufthansa Fleet", "cc": "US", "vol": "30.2K", "voln": 30235, "lh": 76, "men": 81}, {"q": "Lufthansa Boeing 747 Business Class Seating", "cc": "US", "vol": "30.1K", "voln": 30081, "lh": 87, "men": 123}, {"q": "Lufthansa Business and First Class Experience", "cc": "US", "vol": "29.7K", "voln": 29679, "lh": 93, "men": 62}, {"q": "Lufthansa : vols, enregistrement et check-in", "cc": "FR", "vol": "26.0K", "voln": 25980, "lh": 71, "men": 10}, {"q": "Lufthansa Airport Lounges", "cc": "US", "vol": "19.0K", "voln": 19039, "lh": 71, "men": 80}, {"q": "Lufthansa Check-in und Flüge", "cc": "CO", "vol": "17.8K", "voln": 17786, "lh": 98, "men": 15}, {"q": "Lufthansa Baggage and Fees", "cc": "IN", "vol": "15.9K", "voln": 15917, "lh": 96, "men": 54}, {"q": "Lufthansa Student Discounts and Offers", "cc": "US", "vol": "15.8K", "voln": 15820, "lh": 78, "men": 19}];
-
-var COMPETITORS=[
-  {id:'eurowings',name:'Eurowings',flag:'🇩🇪',inData:true},
-  {id:'ryanair',name:'Ryanair',flag:'🇮🇪',inData:true},
-  {id:'condor',name:'Condor',flag:'🇩🇪',inData:true},
-  {id:'skyscanner',name:'Skyscanner',flag:'🇬🇧',inData:true},
-  {id:'airfrance',name:'Air France',flag:'🇫🇷',inData:false},
-  {id:'klm',name:'KLM',flag:'🇳🇱',inData:false},
-  {id:'ba',name:'British Airways',flag:'🇬🇧',inData:false},
-  {id:'easyjet',name:'easyJet',flag:'🇬🇧',inData:false},
-  {id:'united',name:'United',flag:'🇺🇸',inData:false},
-  {id:'delta',name:'Delta',flag:'🇺🇸',inData:false},
-  {id:'american',name:'American',flag:'🇺🇸',inData:false}
-];
-var selectedComps=['eurowings','ryanair','condor','skyscanner'];
-var currentDate='6m';
-
-function renderComps(){
-  document.getElementById('comp-picker').innerHTML=COMPETITORS.map(function(c){
-    var on=selectedComps.indexOf(c.id)>=0;
-    var full=selectedComps.length>=4 && !on;
-    return '<button class="comp'+(on?' on':'')+(full?' dis':'')+'" onclick="toggleComp(\''+c.id+'\')"><span class="flag">'+c.flag+'</span>'+c.name+(on?'<span class="comp-x">×</span>':'')+'</button>';
-  }).join('');
-}
-function toggleComp(id){
-  var i=selectedComps.indexOf(id);
-  if(i>=0) selectedComps.splice(i,1);
-  else { if(selectedComps.length>=4) return; selectedComps.push(id); }
-  renderComps(); updateCtrlNote();
-}
-function setDate(btn,d){
-  currentDate=d;
-  document.querySelectorAll('#date-seg .seg-b').forEach(function(x){x.classList.remove('on')});
-  btn.classList.add('on');
-  updateCtrlNote();
-}
-function updateCtrlNote(){
-  var note=document.getElementById('ctrl-note');
-  var outOfData=selectedComps.filter(function(id){ var c=COMPETITORS.find(function(x){return x.id===id;}); return c && !c.inData; });
-  var msgs=[];
-  if(currentDate!=='6m') msgs.push('The loaded SEMrush snapshot covers a 6-month window (Jun-Jul 2026); shorter ranges need a live connection.');
-  if(outOfData.length){ var names=outOfData.map(function(id){return COMPETITORS.find(function(x){return x.id===id;}).name;}); msgs.push(names.join(', ')+(outOfData.length>1?' are':' is')+' not in the current dataset -- connect the SEMrush API to benchmark against '+(outOfData.length>1?'them':'it')+'.'); }
-  if(msgs.length){ note.style.display='flex'; note.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h16.9a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg><span>'+msgs.join(' ')+'</span>'; }
-  else note.style.display='none';
-}
-
-var PS_SUGGEST=['flights to Prague','baggage rules','premium economy','Egypt travel','customer service','flight search engines'];
-function renderPsChips(){
-  document.getElementById('ps-chips').innerHTML=PS_SUGGEST.map(function(s){return '<button class="ps-chip" onclick="psPick(this)">'+s+'</button>';}).join('');
-}
-function psPick(b){ var i=document.getElementById('ps-input'); i.value=b.textContent; searchPrompts(); }
-function searchPrompts(){
-  var q=document.getElementById('ps-input').value.trim().toLowerCase();
-  var el=document.getElementById('ps-results');
-  if(!q){ el.innerHTML=''; return; }
-  var terms=q.split(/\s+/);
-  var hits=PROMPTS.filter(function(p){ var t=p.q.toLowerCase(); return terms.some(function(w){return t.indexOf(w)>=0;}); });
-  hits.sort(function(a,b){ return b.voln-a.voln; });
-  hits=hits.slice(0,5);
-  if(!hits.length){ el.innerHTML='<div class="ps-empty">No tracked prompt matches "'+q.replace(/</g,'')+'" in the loaded dataset. A live SEMrush connection would query the full prompt database.</div>'; return; }
-  el.innerHTML=hits.map(function(p){
-    var absent=p.lh===0;
-    var badge=absent?'<span class="ps-badge absent">Lufthansa absent</span>':'<span class="ps-badge present">Lufthansa cited</span>';
-    var body,brands;
-    if(absent){
-      body='AI assistants cite competitors for this prompt; <b>lufthansa.com does not appear</b>. Estimated <b>'+p.vol+'</b> annual AI-search volume.';
-      brands='<div class="ps-brands">'+(p.brands||[]).map(function(x){return '<span class="ps-brand">'+x+'</span>';}).join('')+'</div>';
-    } else {
-      body='Lufthansa is a cited source here with visibility <b>'+p.lh+'/100</b> and <b>'+(p.men||0)+'</b> mentions. Estimated <b>'+p.vol+'</b> annual AI-search volume.';
-      brands='<div class="ps-brands"><span class="ps-brand lh">lufthansa.com ✓</span></div>';
-    }
-    return '<div class="ps-r"><div class="ps-r-top">'+badge+'<span class="ps-r-q">'+p.q+'</span><span class="ps-r-meta">'+p.cc+' · AI vol '+p.vol+'</span></div><div class="ps-r-body">'+body+'</div>'+brands+'</div>';
-  }).join('');
-}
 
 function setVS(k, btn){
   currentVS = k;
